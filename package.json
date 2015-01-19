@@ -1,0 +1,28 @@
+{
+  "name": "interpolator",
+  "version": "1.0.0",
+  "description": "Using interpolator you can build interpolation functions for objects and arrays",
+  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Mikko Haapoja",
+    "email": "me@mikkoh.com",
+    "url": "https://github.com/mikkoh"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "interpolation,custom,object,array,lerp"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jam3/interpolator.git"
+  },
+  "homepage": "https://github.com/jam3/interpolator",
+  "bugs": {
+    "url": "https://github.com/jam3/interpolator/issues"
+  }
+}
