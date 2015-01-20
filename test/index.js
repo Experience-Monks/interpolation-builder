@@ -82,13 +82,12 @@ test( 'recusive', function( t ) {
     }
   };
 
-  var animator1 = interpolator();
-  var animator2 = interpolator();
+  var animator = interpolator();
 
-  animator1.map( 'inner', animator2 );
-  animator2.map( [ 'x', 'y' ] );
+  animator.sub( 'inner' )
+          .map( [ 'x', 'y' ] );
 
-  t.deepEqual( animator1( 0.5, start, end ), {
+  t.deepEqual( animator( 0.5, start, end ), {
 
     inner: {
       x: 52,

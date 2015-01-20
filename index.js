@@ -1,4 +1,4 @@
-module.exports = function() {
+module.exports = function builder() {
 
   var interpolationFunctions = {};
 
@@ -14,6 +14,15 @@ module.exports = function() {
     return rVal;
   }
 
+  interpolator.sub = function( property ) {
+
+    var nBuilder = builder();
+
+    interpolationFunctions[ property ] = nBuilder;
+
+    return nBuilder;
+  },
+
   interpolator.map = function( property, interpolationFunction ) {
 
     if( Array.isArray( property ) ) {
@@ -26,6 +35,8 @@ module.exports = function() {
 
       interpolationFunctions[ property ] = interpolationFunction || lerp;  
     }
+
+    return interpolator;
   };
 
   return interpolator;

@@ -16,9 +16,9 @@ var builder = require( 'interpolation-builder' );
 
 var lerper = builder();
 
-lerper.map( [ 'x', 'y' ] ); // <- use default lerp for these properties
-lerper.map( 'z', customInterpolation1 ); // <- custom interpolation for one prop
-lerper.map( [ 'u', 'v' ], customInterpolation2 ); // <- custom for two props
+lerper.map( [ 'x', 'y' ] ) // <- use default lerp for these properties
+      .map( 'z', customInterpolation1 ) // <- custom interpolation for one prop
+      .map( [ 'u', 'v' ], customInterpolation2 ); // <- custom for two props
 
 var start = { x: 0, y: 0, z: 0, u: 0, v: 0 };
 var end = { x: 100, y: 150, z: 100, u: 100, v: 200 };
@@ -50,6 +50,34 @@ var start = [ 0, 0, 0 ];
 var end = [ 100, 200, 300 ];
 
 console.log( lerper( 0.5, start, end ) ); // [ 50, 100, 150 ]
+```
+
+
+### Example with sub/child objects
+
+```javascript
+var start = {
+
+  inner: {
+    x: 0,
+    y: 0
+  }
+};
+
+var end = {
+
+  inner: {
+    x: 104,
+    y: 100
+  }
+};
+
+var animator = interpolator();
+
+animator.sub( 'inner' )
+        .map( [ 'x', 'y' ] );
+
+animator( 0, start, end ); // { inner: { x: 52, y: 50 } }
 ```
 
 ## License
