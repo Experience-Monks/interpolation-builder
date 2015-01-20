@@ -1,20 +1,20 @@
-# interpolator
+# interpolation-builder
 
 [![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
 
-Using interpolator you can build interpolation functions for objects and arrays. By default lerp is used but you can drop in 
+Using interpolation-builder you can build interpolation functions for objects and arrays. By default lerp is used but you can drop in 
 custom interpolation functions also.
 
 ## Usage
 
-[![NPM](https://nodei.co/npm/interpolator.png)](https://www.npmjs.com/package/interpolator)
+[![NPM](https://nodei.co/npm/interpolation-builder.png)](https://www.npmjs.com/package/interpolation-builder)
 
 ### Example with Objects
 
 ```javascript
-var interpolator = require( 'interpolator' );
+var builder = require( 'interpolation-builder' );
 
-var lerper = interpolator();
+var lerper = builder();
 
 lerper.map( [ 'x', 'y' ] ); // <- use default lerp for these properties
 lerper.map( 'z', customInterpolation1 ); // <- custom interpolation for one prop
@@ -40,9 +40,9 @@ function customInterpolation1( time, start, end ) {
 ### Example with Arrays
 
 ```javascript
-var interpolator = require( 'interpolator' );
+var builder = require( 'interpolation-builder' );
 
-var lerper = interpolator();
+var lerper = builder();
 
 lerper.map( [ 0, 1, 2 ] ); // <- use default lerp for these properties
 
@@ -54,4 +54,4 @@ console.log( lerper( 0.5, start, end ) ); // [ 50, 100, 150 ]
 
 ## License
 
-MIT, see [LICENSE.md](http://github.com/jam3/interpolator/blob/master/LICENSE.md) for details.
+MIT, see [LICENSE.md](http://github.com/jam3/interpolation-builder/blob/master/LICENSE.md) for details.

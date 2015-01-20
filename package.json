@@ -1,7 +1,7 @@
 {
-  "name": "interpolator",
+  "name": "interpolation-builder",
   "version": "1.0.0",
-  "description": "Using interpolator you can build interpolation functions for objects and arrays",
+  "description": "Using interpolation-builder you can build interpolation functions for objects and arrays",
   "main": "index.js",
   "license": "MIT",
   "author": {
@@ -19,10 +19,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/jam3/interpolator.git"
+    "url": "git://github.com/jam3/interpolation-builder.git"
   },
-  "homepage": "https://github.com/jam3/interpolator",
+  "homepage": "https://github.com/jam3/interpolation-builder",
   "bugs": {
-    "url": "https://github.com/jam3/interpolator/issues"
+    "url": "https://github.com/jam3/interpolation-builder/issues"
   }
 }
