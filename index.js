@@ -1,4 +1,4 @@
-module.exports = function builder() {
+module.exports = function builder( definition ) {
 
   var interpolationFunctions = {};
 
@@ -39,8 +39,28 @@ module.exports = function builder() {
     return interpolator;
   };
 
+  // if we have a definition setup interpolator
+  if( definition ) {
+
+    parse( interpolator, definition );
+  }
+
   return interpolator;
 };
+
+function parse( interpolator, definition ) {
+
+  for( var i in definition ) {
+
+    if( typeof definition[ i ] == 'function' || !definition[ i ]  ) {
+
+      interpolator.map( i, definition[ i ] );
+    } else if( typeof definition[ i ] == 'object' ) {
+
+      parse( interpolator.sub( i ), definition[ i ] );
+    }
+  }
+}
 
 function lerp( time, start, end ) {
 

@@ -9,7 +9,44 @@ custom interpolation functions also.
 
 [![NPM](https://nodei.co/npm/interpolation-builder.png)](https://www.npmjs.com/package/interpolation-builder)
 
-### Example with Objects
+### Example
+
+```javascript
+var builder = require( 'interpolation-builder' );
+
+var lerper = build( {
+  
+  x: null, // will use linear interpolation
+  sub: {
+
+    x: function( percentage, start, end ) {
+
+      return 'value is: ' + ( ( end - start ) * percentage + start );
+    }
+  } 
+});
+
+var start = {
+    
+  x: 0,
+  sub: {
+    x: 0
+  }
+};
+
+var end = {
+    
+  x: 100,
+  sub: {
+    x: 100
+  }
+};
+
+console.log( lerper( 0.5, start, end ) ); // { x: 50, sub: { x: 'value is: 50' } }
+```
+
+
+### Example with Objects using sub and map functions
 
 ```javascript
 var builder = require( 'interpolation-builder' );

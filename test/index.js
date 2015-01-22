@@ -96,6 +96,42 @@ test( 'recusive', function( t ) {
   }, 'interpolated nested' );
 });
 
+test( 'from definition', function( t ) {
+
+  t.plan( 1 );
+
+  var def = {
+
+    x: null,
+    sub: {
+      x: customInterpolator,
+      y: null
+    }
+  };
+
+  var start = {
+
+    x: 0,
+    sub: {
+      x: 0,
+      y: 0
+    }
+  };
+
+  var end = {
+
+    x: 100,
+    sub: {
+      x: 100,
+      y: 100
+    }
+  };
+
+  var animator = interpolator( def );
+
+  t.deepEqual( animator( 0.5, start, end ), { x: 50, sub: { x: 'bigger', y: 50 } }, 'interpolated from def' );
+});
+
 function customInterpolator( time, start, end ) {
 
   if( time <= 0.25 ) {
